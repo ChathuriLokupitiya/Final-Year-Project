@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white text-gray-900 font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-semibold text-secondary mb-2;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-medium rounded-md transition-all duration-300 text-sm;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white shadow-md hover:brightness-90 hover:-translate-y-0.5 hover:shadow-lg;
+  }
+  
+  .btn-outline {
+    @apply border border-gray-200 text-gray-900 bg-transparent hover:border-primary hover:text-primary;
+  }
+
+  .form-input {
+    @apply w-full px-4 py-3 border border-gray-200 rounded-md bg-white text-gray-900 transition-all focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/20;
+  }
+
+  /* Auth pages: single clean border, no browser double-border / label clash */
+  .auth-field {
+    @apply flex flex-col gap-2.5;
+  }
+
+  .auth-label {
+    @apply block font-label-sm text-label-sm uppercase tracking-wide text-outline;
+  }
+
+  .auth-input {
+    @apply w-full appearance-none bg-surface
+      border border-solid border-outline-variant rounded-none
+      px-4 py-3.5
+      font-body-md text-on-surface leading-normal
+      shadow-none outline-none ring-0
+      placeholder:text-outline/40
+      focus:border-primary focus:outline-none focus:ring-0
+      transition-colors duration-200;
+  }
+
+  .auth-input-with-icon {
+    @apply pr-12;
+  }
+  
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20;
+  }
+}
+
+@layer utilities {
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  }
+  .luxury-shadow {
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.04);
+  }
+  .glass-nav {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease-out;
+  }
+  .reveal-on-scroll.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+
+/* Keep autofill from drawing a second overlapping border on auth inputs */
+.auth-input:-webkit-autofill,
+.auth-input:-webkit-autofill:hover,
+.auth-input:-webkit-autofill:focus {
+  -webkit-text-fill-color: inherit;
+  transition: background-color 9999s ease-in-out 0s;
+  box-shadow: 0 0 0 1000px #fdfcf8 inset;
+  border: 1px solid #c8c5bc !important;
+}
+
+::selection {
+  background: #e9c176;
+  color: #1b1c1c;
+}
