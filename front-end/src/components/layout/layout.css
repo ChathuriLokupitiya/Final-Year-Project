@@ -1,0 +1,106 @@
+/* layout.css - Specific styles for layout components */
+
+/* Navbar styles */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 1rem 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-weight: 500;
+}
+
+.nav-links a:hover:not(.btn) {
+  color: var(--primary);
+}
+
+.auth-links, .user-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 1rem;
+  border-left: 1px solid var(--border-color);
+  padding-left: 1rem;
+}
+
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+}
+
+.btn-icon:hover {
+  color: var(--error);
+}
+
+.main-content {
+  min-height: calc(100vh - 160px); /* Adjust based on nav/footer heights */
+}
+
+/* Admin Layout (Placeholder styles) */
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.admin-sidebar {
+  width: 260px;
+  background-color: var(--secondary);
+  color: var(--white);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-sidebar-nav {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.admin-sidebar-nav a {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast);
+}
+
+.admin-sidebar-nav a:hover, .admin-sidebar-nav a.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--primary);
+}
+
+.admin-main {
+  flex: 1;
+  background-color: var(--bg-secondary);
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-header {
+  height: 70px;
+  background-color: var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 2rem;
+}
+
+.admin-content {
+  padding: 2rem;
+  flex: 1;
+  overflow-y: auto;
+}
